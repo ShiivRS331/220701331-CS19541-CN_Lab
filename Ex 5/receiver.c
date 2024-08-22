@@ -36,7 +36,7 @@ int main() {
     }
     // Print the redundant bits
     int redundant=0;
-    printf("Message with redundant bits: ");
+    printf("redundant bits: ");
     for (int i = 0; i < r; i++) {
         printf("%d ", red[i]);
         redundant=redundant*10+red[i];
