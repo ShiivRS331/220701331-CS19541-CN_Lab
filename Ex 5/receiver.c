@@ -49,6 +49,9 @@ int main() {
         redundant/=10;
         b*=2;
     }
+    if(err==0)
+            printf("\nNo error");
+    else
     printf("\nPosition of error Bit: %d",err);
     return 0;
 }
