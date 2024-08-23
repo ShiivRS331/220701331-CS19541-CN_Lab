@@ -15,16 +15,15 @@ struct frame {
 void send_frame(struct frame s) {
   printf("Sending frame %d: seq_no=%d, ack_no=%d, info=%c\n", s.seq_no, s.ack_no, s.info);
 }
-
 int main() {
   int frame_exp = 0,
        next_frame_to_send = 0,
        ack_expected = 0;
-  char ch;
+  char ch[MAX_SEQ];
   bool arrived[BUFFER];
 
-  printf("Enter the character: ");
-  scanf("%c", &ch);
+  printf("Enter the characters: ");
+  scanf("%s", ch);
 
   // Initialize arrived array to false
   for (int i = 0; i < BUFFER; i++) {
@@ -38,7 +37,7 @@ int main() {
       struct frame s;
       s.seq_no = frame_exp;
       s.ack_no = (frame_exp + MAX_SEQ) % (MAX_SEQ + 1);
-      s.info = ch + next_frame_to_send;
+      s.info = ch[next_frame_to_send];
 
       send_frame(s);
       next_frame_to_send++;
@@ -59,7 +58,7 @@ int main() {
           struct frame s;
           s.seq_no = i;
           s.ack_no = (frame_exp + MAX_SEQ) % (MAX_SEQ + 1);
-          s.info = ch + i;
+          s.info = ch[i];
           send_frame(s);
         }
       }
