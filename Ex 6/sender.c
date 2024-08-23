@@ -40,7 +40,7 @@ int main() {
       s.info = ch[next_frame_to_send];
 
       send_frame(s);
-      next_frame_to_send++;
+      next_frame_to_send=(next_frame_to_send+1)%BUFFER;
     }
 
     // Receive ACKs and update window
