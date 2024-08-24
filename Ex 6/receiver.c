@@ -63,5 +63,5 @@ int main() {
             printf("Frame %d was not received.\n", i);
         }
     }
-  printf("All frames received...Reception Complete!");
+  printf("All frames received...Reception Completed!");
 }
