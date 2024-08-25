@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include<string.h>
 
 #define MAX_SEQ 7
 #define BUFFER ((MAX_SEQ + 1) / 2)
@@ -55,7 +56,7 @@ int main() {
     scanf("%s", ch);
 
     // Receiving the frames
-    for(int i = 0; i < BUFFER; i++) {
+    for(int i = 0; i < strlen(ch); i++) {
         receive_frame(&frame_exp, &window_bound, ch[i],arrived);
     }
     printf("\nAll frames received... Reception Completed!\n");
