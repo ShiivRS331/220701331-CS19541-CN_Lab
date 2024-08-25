@@ -18,7 +18,7 @@ bool between(int a, int b, int c) {
     return ((a <= b) && (b < c)) || ((c < a) && (a <= b)) || ((b < c) && (c < a));
 }
 
-// Function to simulate receiving a frame
+// Call by reference is used to modify the actual variables in the calling function directly.
 void receive_frame(int *frame_exp, int *window_bound, char ch,bool arrived[]) {
     r.seq_no = *frame_exp;
     r.ack_no = *frame_exp;
