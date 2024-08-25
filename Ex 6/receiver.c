@@ -25,7 +25,7 @@ void receive_frame(int *frame_exp, int *window_bound, char ch,bool arrived[]) {
     r.info = ch;
 
     // Check if the received frame is within the window
-    if (between(*frame_exp, *frame_exp, *window_bound)) {
+    if (between(*frame_exp, r.seq_no, *window_bound)) {
         arrived[*frame_exp % BUFFER] = true;
 
         // Process the frame if it's the expected one
