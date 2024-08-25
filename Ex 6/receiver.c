@@ -39,11 +39,11 @@ void receive_frame(int frame_exp, int window_bound, bool arrived[], char ch) {
 int main() {
     int frame_exp = 0;
     int window_bound = WINDOW_BOUND;
-    char ch[MAX_SEQ];  // Array to store characters from user input
+    char ch[MAX_SEQ]; 
     bool arrived[BUFFER] = { false };
 
     printf("Enter the characters: ");
-    scanf("%s", ch);  // Read user input
+    scanf("%s", ch); 
 
     // Receiving the frames 
     for(int i = 0; i < BUFFER; i++) {
