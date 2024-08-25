@@ -31,7 +31,7 @@ void receive_frame(int *frame_exp, int *window_bound, char data,bool arrived[]) 
 
         // Process the frame if it's the expected one
         if (arrived[*frame_exp % BUFFER]) {
-            printf("Received Frame %d: seq_no: %d, ack_no: %d, info: %c\n", *frame_exp,r.seq_no, r.ack_no, r.info);
+            printf("Receiving Frame %d: seq_no: %d, ack_no: %d, info: %c\n", *frame_exp,r.seq_no, r.ack_no, r.info);
             // Move to the next expected frame and update window bounds
             *frame_exp = (*frame_exp + 1) % (MAX_SEQ + 1);
             *window_bound = (*window_bound + 1) % (MAX_SEQ + 1);
