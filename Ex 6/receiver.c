@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdbool.h>
+#include <stdio.h>    // For printf() and scanf()
+#include <stdbool.h>  // For boolean type and constants
 
 #define MAX_SEQ 7
 #define BUFFER ((MAX_SEQ + 1) / 2)  // Integer division
-#define WINDOW_SIZE BUFFER
+#define WINDOW_BOUND BUFFER  // Replacing WINDOW_SIZE with WINDOW_BOUND
 
 struct frame {
     int seq_no;
@@ -26,7 +26,7 @@ void receive_frame(int *frame_exp, int *window_bound, bool arrived[], char ch) {
         arrived[r.seq_no % BUFFER] = true;
         // Process the frame if it's the next expected frame
         if (arrived[*frame_exp % BUFFER]) {
-            printf("Received Frame %d: seq_no: %d, ack_no: %d, info: %c\n", *frame_exp, r.seq_no,r.ack_no, r.info);
+            printf("Received Frame %d: seq_no: %d, info: %c\n", *frame_exp, r.seq_no, r.info);
             *frame_exp = (*frame_exp + 1) % (MAX_SEQ + 1);
             *window_bound = (*window_bound + 1) % (MAX_SEQ + 1);
         } else {
@@ -38,11 +38,11 @@ void receive_frame(int *frame_exp, int *window_bound, bool arrived[], char ch) {
 
 int main() {
     int frame_exp = 0;
-    int window_bound = WINDOW_SIZE;
+    int window_bound = WINDOW_BOUND;
     char ch[MAX_SEQ];  // Array to store characters from user input
     bool arrived[BUFFER] = { false };
 
-    printf("Enter the message: ");
+    printf("Enter the characters: ");
     scanf("%s", ch);  // Read user input
 
     // Receiving the frames 
@@ -50,7 +50,7 @@ int main() {
         // Receive a frame for each character in the input
         receive_frame(&frame_exp, &window_bound, arrived, ch[i]);
     }
-    printf("\nAll frames received... Reception Completed!\n");
+    printf("All frames received... Reception Completed!\n");
 
     return 0;
 }
