@@ -19,7 +19,7 @@ bool between(int a, int b, int c) {
 }
 
 // Function to simulate receiving a frame
-void receive_frame(int *frame_exp, int *window_bound, bool arrived[], char ch) {
+void receive_frame(int *frame_exp, int *window_bound, char ch,bool arrived[]) {
     r.seq_no = *frame_exp;
     r.ack_no = *frame_exp;
     r.info = ch;
@@ -56,7 +56,7 @@ int main() {
 
     // Receiving the frames
     for(int i = 0; i < BUFFER; i++) {
-        receive_frame(&frame_exp, &window_bound, arrived, ch[i]);
+        receive_frame(&frame_exp, &window_bound, ch[i],arrived);
     }
     printf("\nAll frames received... Reception Completed!\n");
 
