@@ -13,7 +13,7 @@ struct frame {
 
 struct frame r;
 
-// Helper function to determine if a value is within the window
+// checks if a value is within the window
 bool between(int a, int b, int c) {
     return ((a <= b) && (b < c)) || ((c < a) && (a <= b)) || ((b < c) && (c < a));
 }
