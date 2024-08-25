@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
-#include <string.h> // For strlen()
 
 #define MAX_SEQ 7
 #define BUFFER ((MAX_SEQ + 1) / 2)  // Integer division
