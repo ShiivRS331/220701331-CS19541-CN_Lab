@@ -51,7 +51,7 @@ int main() {
     char ch[MAX_SEQ];
     bool arrived[BUFFER] = { false };
 
-    printf("Enter the characters: ");
+    printf("Enter the message: ");
     scanf("%s", ch);
 
     // Receiving the frames
