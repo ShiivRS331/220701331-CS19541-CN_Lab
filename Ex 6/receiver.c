@@ -50,7 +50,7 @@ int main() {
         // Receive a frame for each character in the input
         receive_frame(frame_exp, window_bound, arrived, ch[i]);
     }
-    printf("All frames received... Reception Completed!\n");
+    printf("\nAll frames received... Reception Completed!\n");
 
     return 0;
 }
