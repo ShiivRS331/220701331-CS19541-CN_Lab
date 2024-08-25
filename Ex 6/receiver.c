@@ -21,7 +21,7 @@ bool between(int a, int b, int c) {
 // Call by reference is used to modify the actual variables in the calling function directly.
 void receive_frame(int *frame_exp, int *window_bound, char ch,bool arrived[]) {
     r.seq_no = *frame_exp;
-    r.ack_no = *frame_exp;
+    r.ack_no = (*frame_exp+MAX_SEQ)%(MAX_SEQ+1);
     r.info = ch;
 
     // Check if the received frame is within the window
