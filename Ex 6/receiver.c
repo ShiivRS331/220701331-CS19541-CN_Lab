@@ -58,7 +58,7 @@ int main() {
     for(int i = 0; i < strlen(ch); i++) {
         receive_frame(&frame_exp, &window_bound, ch[i],arrived);
     }
-    printf("\nAll frames received... Reception Completed!\n");
+    printf("\nAll frames received... Reception Complete!\n");
 
     return 0;
 }
